@@ -1,1 +1,21 @@
 <h1>My tasks</h1>
+
+<ul>
+    <% @tasks.each do |task| %>
+        <li>
+            <%= link_to task.title, task_path(task) %>
+        </li>
+    <% end %>
+</ul>
+
+
+<h2>Create Task</h2>
+<%= form_for Task.new, html: {class: 'form'} do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :details %>
+    <%= f.text_area :details %>
+    <%= f.label :completed %>
+    <%= f.check_box :completed %>
+    <%= f.submit %>
+<% end %>
