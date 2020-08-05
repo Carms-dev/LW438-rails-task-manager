@@ -8,3 +8,5 @@
 <%= render 'shared/form', task: @task %>
 
 <%= link_to 'delete', task_path(@task), method: :delete, data: { confirm: "you sure?"} %>
+
+<%= link_to 'back', :back %>
