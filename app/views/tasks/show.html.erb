@@ -4,14 +4,7 @@
 
 <h2>Edit Task</h2>
 
-<%= form_for @task, html: { class: 'form' } do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :details %>
-    <%= f.text_area :details %>
-    <%= f.label :completed %>
-    <%= f.check_box :completed %>
-    <%= f.submit %>
-<% end %>
+
+<%= render 'shared/form', task: @task %>
 
 <%= link_to 'delete', task_path(@task), method: :delete, data: { confirm: "you sure?"} %>

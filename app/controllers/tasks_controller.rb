@@ -2,6 +2,7 @@ class TasksController < ApplicationController
     before_action :find_task, only: [:show, :update, :delete]
     def index
         @tasks = Task.all.reverse
+        @task = Task.new
     end
 
     def show
