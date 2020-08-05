@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-    before_action :find_task, only: [:show, :edit, :update, :delete]
+    before_action :find_task, only: [:show, :update, :delete]
     def index
         @tasks = Task.all.reverse
     end
@@ -7,15 +7,9 @@ class TasksController < ApplicationController
     def show
     end
     
-    def new
-    end
-
     def create
         Task.create(task_params)
         redirect_to tasks_path
-    end
-
-    def edit
     end
     
     def update
