@@ -1,15 +1,23 @@
-<h1>My tasks</h1>
+<div class="container">
+    <h1>My tasks</h1>
 
-<ul>
-    <% @tasks.each do |task| %>
-        <li>
-            <%= link_to task.title, task_path(task) %>
-        </li>
-    <% end %>
-</ul>
+    <ul>
+        <% @tasks.each do |task| %>
+            <li>
+                <% if task.completed == true %>
+                    <span class="iconify" data-icon="carbon:checkbox-checked" data-inline="false"></span>
+                <% else %>
+                    <span class="iconify" data-icon="carbon:checkbox" data-inline="false"></span>
+                <% end %>
+                <%= link_to task.title, task_path(task) %>
+            </li>
+        <% end %>
+    </ul>
 
 
-<h2>Create Task</h2>
-<%= render 'shared/form', task: @task %>
+    <h2>Create Task</h2>
+    <%= render 'shared/form', task: @task %>
 
-<%= link_to 'back', :back %>
+    <%= link_to 'back', :back, class: 'btn btn-primary' %>
+
+</div>

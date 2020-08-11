@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-    before_action :find_task, only: [:show, :update, :delete]
+    before_action :find_task, only: [:show, :update, :destroy]
     def index
         @tasks = Task.all.reverse
         @task = Task.new
@@ -9,7 +9,7 @@ class TasksController < ApplicationController
     end
     
     def create
-        Task.create(task_params)
+        task = Task.new(task_params)
         redirect_to tasks_path
     end
     
@@ -18,7 +18,7 @@ class TasksController < ApplicationController
         redirect_to task_path(@task)
     end
     
-    def delete
+    def destroy
         @task.destroy
         redirect_to tasks_path
     end
